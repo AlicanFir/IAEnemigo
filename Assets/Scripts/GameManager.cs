@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -25,8 +26,8 @@ public class GameManager : MonoBehaviour
         if (playerInCollider && playerInteracted)
         {
             //muevo la cámara a la siguiente posicion
-            cam.transform.position = Vector3.Lerp(cam.transform.position, cameraSecondLocation, cameraSpeed* Time.deltaTime);
-            Debug.Log("Next room");
+            cam.transform.position =
+                Vector3.Lerp(cam.transform.position, cameraSecondLocation, cameraSpeed * Time.deltaTime);
         }
     }
 }
