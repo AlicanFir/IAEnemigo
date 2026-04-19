@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     private Camera cam;
     [SerializeField] private Vector3 cameraSecondLocation;
+    [SerializeField] private float cameraSpeed = 5f;
 
     private void Awake()
     {
@@ -23,7 +25,7 @@ public class GameManager : MonoBehaviour
         if (playerInCollider && playerInteracted)
         {
             //muevo la cámara a la siguiente posicion
-            //cam.transform.position = cameraSecondLocation;
+            cam.transform.position = Vector3.Lerp(cam.transform.position, cameraSecondLocation, cameraSpeed* Time.deltaTime);
             Debug.Log("Next room");
         }
     }
